@@ -1,12 +1,16 @@
 {
   "name": "ember-crontab",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "crontab-expression",
+    "cron-expression",
+    "crontab",
+    "cron"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "pudgecon@gmail.com",
   "directories": {
     "doc": "doc",
     "test": "tests"

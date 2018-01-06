@@ -1,10 +1,12 @@
 # ember-crontab
 
+![Alt text](https://travis-ci.org/pudgecon/ember-crontab.svg?branch=master)
+
 This README outlines the details of collaborating on this Ember addon.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone git@github.com:pudgecon/ember-crontab.git` this repository
 * `cd ember-crontab`
 * `npm install`
 
