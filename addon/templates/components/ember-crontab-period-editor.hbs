@@ -1,0 +1,77 @@
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="all" checked={{isAll}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  每{{unit}}
+</div>
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="range" checked={{isRange}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  从
+  <select disabled={{notRange}} onchange={{action (mut startFrom) value="target.value" }}>
+    <option value="*" selected={{equals startFrom "*"}}>未指定</option>
+    {{#each startFromOptions as |i|}}
+    <option value={{i}} selected={{equals startFrom i}}>{{i}}</option>
+    {{/each}}
+  </select>
+  至
+  <select disabled={{notRange}} onchange={{action (mut endTo) value="target.value" }}>
+    <option value="*" selected={{equals startFrom "*"}}>未指定</option>
+    {{#each endToOptions as |i|}}
+    <option value={{i}} selected={{equals endTo i}}>{{i}}</option>
+    {{/each}}
+  </select>
+</div>
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="step" checked={{isStep}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  从
+  <select disabled={{notStep}} onchange={{action (mut startFrom) value="target.value" }}>
+    <option value="*" selected={{equals startFrom "*"}}>未指定</option>
+    {{#each startFromOptions as |i|}}
+    <option value={{i}} selected={{equals startFrom i}}>{{i}}</option>
+    {{/each}}
+  </select>
+  起，每隔
+  {{input disabled=notStep type="number" value=step}} {{unit}}
+</div>
+{{#if isDayOfMonthOrDayOfWeek}}
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="unspecific" checked={{isUnspecific}}
+   onchange={{action (mut cronType) value="target.value"}}>
+  未指定
+</div>
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="">
+  L #TODO
+</div>
+{{/if}}
+{{#if isDayOfMonth}}
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="">
+  M #TODO
+</div>
+{{/if}}
+{{#if isDayOfWeek}}
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="">
+  # #TODO
+</div>
+{{/if}}
+<div>
+  <input class="" type="radio" name="radio-{{elementId}}" value="list" checked={{isList}}
+   onchange={{action (mut cronType) value="target.value"}}>
+   指定时间：
+   <div style="margin-left: 20px;">
+     {{#each list as |li|}}
+      <span style="display: inline-block; min-width: 72px;">
+        <label>
+          {{!-- <input type="checkbox" disabled={{notList}} checked={{li.checked}}
+           onchange={{action "toggleListItem" li}}>
+          {{li.value}} --}}
+          {{input type="checkbox" disabled=notList checked=li.checked change=(action "toggleListItem" li)}}
+          {{li.value}}
+        </label>
+      </span>
+     {{/each}}
+   </div>
+</div>

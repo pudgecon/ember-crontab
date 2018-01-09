@@ -1,0 +1,64 @@
+<style>
+  .period-editor-form {
+    display: none;
+  }
+
+  .period-year:checked~.period-editor-form-year,
+  .period-week:checked~.period-editor-form-day-of-week,
+  .period-month:checked~.period-editor-form-month,
+  .period-day:checked~.period-editor-form-day-of-month,
+  .period-hour:checked~.period-editor-form-hour,
+  .period-minute:checked~.period-editor-form-minute,
+  .period-second:checked~.period-editor-form-second,
+  .period-raw:checked~.period-editor-form-raw {
+    display: block;
+  }
+</style>
+<div>
+  <p>Result: {{cron}}</p>
+</div>
+<div class="ember-crontab-tab">
+  <input class="period period-year" type="radio" checked=checked name="ember-crontab-header" value="year" />
+  <label>年</label>
+  <input class="period period-week" type="radio" name="ember-crontab-header" value="dayOfWeek" />
+  <label>周</label>
+  <input class="period period-month" type="radio" name="ember-crontab-header" value="month" />
+  <label>月</label>
+  <input class="period period-day" type="radio" name="ember-crontab-header" value="dayOfMonth" />
+  <label>日</label>
+  <input class="period period-hour" type="radio" name="ember-crontab-header" value="hour" />
+  <label>时</label>
+  <input class="period period-minute" type="radio" name="ember-crontab-header" value="minute" />
+  <label>分</label>
+  <input class="period period-second" type="radio" name="ember-crontab-header" value="second" />
+  <label>秒</label>
+  <input class="period period-raw" type="radio" name="ember-crontab-header" value="raw" />
+  <label>原始值</label>
+
+  <div class="period-editor-form period-editor-form-year">
+    {{ember-crontab-year-editor value=year}}
+  </div>
+  <div class="period-editor-form period-editor-form-day-of-week">
+    {{ember-crontab-day-of-week-editor value=dayOfWeek periodType="dayOfWeek"}}
+  </div>
+  <div class="period-editor-form period-editor-form-month">
+    {{ember-crontab-month-editor value=month}}
+  </div>
+  <div class="period-editor-form period-editor-form-day-of-month">
+    {{ember-crontab-day-of-month-editor value=dayOfMonth periodType="dayOfMonth"}}
+  </div>
+  <div class="period-editor-form period-editor-form-hour">
+    {{ember-crontab-hour-editor value=hour}}
+  </div>
+  <div class="period-editor-form period-editor-form-minute">
+    {{ember-crontab-minute-editor value=minute}}
+  </div>
+  <div class="period-editor-form period-editor-form-second">
+    {{ember-crontab-second-editor value=second}}
+  </div>
+  <div class="period-editor-form period-editor-form-raw">
+    {{input value=cron}}
+  </div>
+</div>
+<div>
+</div>

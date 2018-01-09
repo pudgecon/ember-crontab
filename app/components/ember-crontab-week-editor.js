@@ -1,0 +1,1 @@
+export { default } from 'ember-crontab/components/ember-crontab-week-editor';
