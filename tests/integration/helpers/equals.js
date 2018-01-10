@@ -1,15 +1,8 @@
-import { moduleForComponent, test } from 'ember-qunit';
-import hbs from 'htmlbars-inline-precompile';
+import { equals } from 'my-app/helpers/equals';
+import { module, test } from 'ember-qunit';
 
-moduleForComponent('eq', 'helper:eq', {
-  integration: true
-});
+module('Unit | Helper | equals');
 
-// Replace this with your real tests.
-test('it renders', function(assert) {
-  this.set('inputValue', '1234');
-
-  this.render(hbs`{{eq inputValue}}`);
-
-  assert.equal(this.$().text().trim(), '1234');
+test('param1 equals param2', function(assert) {
+  assert.ok(equals("2001", "2001"));
 });
