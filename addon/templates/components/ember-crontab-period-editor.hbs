@@ -7,14 +7,14 @@
   <input class="" type="radio" name="radio-{{elementId}}" value="range" checked={{isRange}}
    onchange={{action (mut cronType) value="target.value"}}>
   从
-  <select disabled={{notRange}} onchange={{action (mut startFrom) value="target.value" }}>
+  <select class="range-startfrom" disabled={{notRange}} onchange={{action (mut startFrom) value="target.value" }}>
     <option value="*" selected={{equals startFrom "*"}}>未指定</option>
     {{#each startFromOptions as |i|}}
     <option value={{i}} selected={{equals startFrom i}}>{{i}}</option>
     {{/each}}
   </select>
   至
-  <select disabled={{notRange}} onchange={{action (mut endTo) value="target.value" }}>
+  <select class="range-endto" disabled={{notRange}} onchange={{action (mut endTo) value="target.value" }}>
     <option value="*" selected={{equals startFrom "*"}}>未指定</option>
     {{#each endToOptions as |i|}}
     <option value={{i}} selected={{equals endTo i}}>{{i}}</option>
@@ -25,14 +25,14 @@
   <input class="" type="radio" name="radio-{{elementId}}" value="step" checked={{isStep}}
    onchange={{action (mut cronType) value="target.value"}}>
   从
-  <select disabled={{notStep}} onchange={{action (mut startFrom) value="target.value" }}>
+  <select class="step-startfrom" disabled={{notStep}} onchange={{action (mut startFrom) value="target.value" }}>
     <option value="*" selected={{equals startFrom "*"}}>未指定</option>
     {{#each startFromOptions as |i|}}
     <option value={{i}} selected={{equals startFrom i}}>{{i}}</option>
     {{/each}}
   </select>
   起，每隔
-  {{input disabled=notStep type="number" value=step}} {{unit}}
+  {{input class="step-stepvalue" disabled=notStep type="number" value=step}} {{unit}}
 </div>
 {{#if isDayOfMonthOrDayOfWeek}}
 <div>
@@ -68,8 +68,8 @@
           {{!-- <input type="checkbox" disabled={{notList}} checked={{li.checked}}
            onchange={{action "toggleListItem" li}}>
           {{li.value}} --}}
-          {{input type="checkbox" disabled=notList checked=li.checked change=(action "toggleListItem" li)}}
-          {{li.value}}
+          {{input class="list-item" type="checkbox" disabled=notList checked=li.checked change=(action "toggleListItem" li)}}
+          <span>{{li.value}}</span>
         </label>
       </span>
      {{/each}}
