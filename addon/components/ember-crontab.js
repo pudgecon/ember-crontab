@@ -24,7 +24,7 @@ export default Component.extend({
   layout,
   classNames: ['ember-crontab'],
 
-  cron: '* 1-3 2,3,4 3/2 * ? *',
+  cron: '* * * * * ? *',
 
   periods: computed('cron', function () {
     let periodArray = this.get('cron').split(' ');
